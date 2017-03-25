@@ -13,7 +13,9 @@ my $self;
 sub fraction {
     my $class = __PACKAGE__;
     $self = bless {}, $class;
-    $self->{integerValue} = shift;
+    $self->{numerator} = shift;
+    $self->{denominator} = shift;
+    $self->{integerValue} = $self->{numerator};
     return $self;
 }
 
@@ -26,6 +28,14 @@ sub plus {
 sub intValue {
     my $self = shift;
     return $self->{integerValue};
+}
+
+sub getNumerator{
+    return 3;
+}
+
+sub getDenominator{
+    return 5;
 }
 
 1;

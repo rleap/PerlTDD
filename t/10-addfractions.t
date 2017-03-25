@@ -31,4 +31,10 @@ tests negativeInputsAndNegativeOutputs => sub {
     is( fraction(-3)->plus( fraction(1) )->intValue(), -2, 'negative inputs and negative outputs' );
 };
 
+tests nonTrivialButCommonDenominator => sub {
+    my $sum = fraction(1,5)->plus( fraction(2,5) );
+    is( $sum->getNumerator(), 3, 'numerator passed');
+    is( $sum->getDenominator(), 5, 'denominator passed' );
+};
+
 done_testing();

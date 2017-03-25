@@ -9,6 +9,7 @@ our @EXPORT_OK = qw(fraction plus intValue);
 use Data::Dumper qw(Dumper);
 
 my $self;
+$self->{denominator} = 1;
 
 sub fraction {
     my $class = __PACKAGE__;
@@ -22,7 +23,7 @@ sub fraction {
 sub plus {
     my $self = shift;
     my $that = shift;
-    return fraction($that->{integerValue} + $self->{integerValue});
+    return fraction($that->{integerValue} + $self->{integerValue}, $self->{denominator});
 }
 
 sub intValue {
@@ -35,7 +36,8 @@ sub getNumerator{
 }
 
 sub getDenominator{
-    return 5;
+    my $self = shift;
+    return $self->{denominator};
 }
 
 1;

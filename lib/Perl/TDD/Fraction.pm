@@ -16,7 +16,6 @@ sub fraction {
     $self = bless {}, $class;
     $self->{numerator} = shift;
     $self->{denominator} = shift;
-    $self->{integerValue} = $self->{numerator};
     return $self;
 }
 

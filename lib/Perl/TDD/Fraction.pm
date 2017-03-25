@@ -32,7 +32,8 @@ sub intValue {
 }
 
 sub getNumerator{
-    return 3;
+    my $self = shift;
+    return $self->{numerator};
 }
 
 sub getDenominator{

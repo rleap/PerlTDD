@@ -25,8 +25,14 @@ sub zeroPlusNonZero {
     is( $sum->intValue(), 5, 'zero plus non zero' );
 }
 
+sub nonNegativeNonZeroOperands{
+    my $sum = fraction(3)->plus( fraction(4) );
+    is( $sum->intValue(), 7, 'non negative non zero operands' );    
+}
+
 zeroPlusZero();
 nonZeroPlusZero();
 zeroPlusNonZero();
+nonNegativeNonZeroOperands();
 
 done_testing();

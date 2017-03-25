@@ -21,7 +21,7 @@ sub plus {
     my $self = shift;
     my $that = shift;
     if ( $that->{integerValue} != 0 ) {
-        return $that;
+        return fraction($that->{integerValue} + $self->{integerValue});
     }
     else {
         return $self;

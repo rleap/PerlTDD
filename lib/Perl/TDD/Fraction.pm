@@ -23,12 +23,12 @@ sub fraction {
 sub plus {
     my $self = shift;
     my $that = shift;
-    return fraction($that->{integerValue} + $self->{integerValue}, $self->{denominator});
+    return fraction($self->{numerator} + $that->{numerator}, $self->{denominator});
 }
 
 sub intValue {
     my $self = shift;
-    return $self->{integerValue};
+    return $self->{numerator};
 }
 
 sub getNumerator{

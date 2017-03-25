@@ -20,12 +20,7 @@ sub fraction {
 sub plus {
     my $self = shift;
     my $that = shift;
-    if ( $that->{integerValue} != 0 ) {
-        return fraction($that->{integerValue} + $self->{integerValue});
-    }
-    else {
-        return $self;
-    }
+    return fraction($that->{integerValue} + $self->{integerValue});
 }
 
 sub intValue {

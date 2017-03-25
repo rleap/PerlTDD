@@ -3,17 +3,24 @@ package Perl::TDD::Fraction;
 use strict;
 use warnings;
 
-sub new {
-  return bless {}, __PACKAGE__;
+use Exporter qw(import);
+our @EXPORT_OK = qw(fraction plus inValue);
+
+sub fraction {
+  my $class = __PACKAGE__;
+  my $self = bless {}, $class;
+  $self->{integerValue} = shift;
+  return $self;
 }
 
 sub plus {
-  my $v = shift;
-  return $v;
+  my $self = shift;
+  return $self;
 }
 
 sub intValue {
-  return 0;
+  my $self = shift;
+  return $self->{integerValue};
 }
 
 1;

@@ -24,19 +24,4 @@ sub plus {
     return fraction($self->{numerator} + $that->{numerator}, $self->{denominator});
 }
 
-sub intValue {
-    my $self = shift;
-    return $self->{numerator};
-}
-
-sub getNumerator{
-    my $self = shift;
-    return $self->{numerator};
-}
-
-sub getDenominator{
-    my $self = shift;
-    return $self->{denominator};
-}
-
 1;

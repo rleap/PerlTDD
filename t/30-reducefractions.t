@@ -23,4 +23,8 @@ tests reduceToWholeNumber => sub {
     is_deeply( fraction(6), fraction(24, 4), 'reduce to whole number');
 };
 
+tests reduceZero => sub {
+    is_deeply( fraction(0), fraction(0, 717171), 'reduce zero');
+};
+
 done_testing();

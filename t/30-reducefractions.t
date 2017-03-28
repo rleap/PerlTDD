@@ -19,4 +19,8 @@ tests reduceToNotWholeNumber => sub {
     is_deeply( fraction(3, 4), fraction(6, 8), 'reduce to not whole number');
 };
 
+tests reduceToWholeNumber => sub {
+    is_deeply( fraction(6), fraction(24, 4), 'reduce to whole number');
+};
+
 done_testing();

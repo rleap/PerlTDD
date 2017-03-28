@@ -8,7 +8,7 @@ use lib dirname($Bin) . '/lib';
 use Data::Dumper qw(Dumper);
 use Fennec;
 
-BEGIN { use_ok 'Perl::TDD::Fraction', qw(fraction plus intValue) }
+BEGIN { use_ok 'Perl::TDD::NumberTheory', qw(gcd) }
 
 #GreatestCommonDevisorTests
 tests reflexive => sub {
@@ -38,15 +38,5 @@ tests negatives => sub {
     is( gcd(-24, 28), 4, 'gcd negative twentyfour and positive twentyeight');
     is( gcd(24, -28), 4, 'gcd positive twentyfour and negative twentyeight');
 };
-
-sub gcd {
-    my ($a, $b) = @_;
-    while ($b != 0) {
-        my $t = $b;
-        $b = $a % $t;
-        $a = $t;
-    }
-    return abs($a);
-}
 
 done_testing();

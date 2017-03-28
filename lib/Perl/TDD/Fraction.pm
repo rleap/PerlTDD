@@ -21,7 +21,12 @@ sub fraction {
 sub plus {
     my $self = shift;
     my $that = shift;
-    return fraction($self->{numerator} + $that->{numerator}, $self->{denominator});
+    if ($self->{denominator} != $that->{denominator}) {
+        return fraction($self->{numerator} * $that->{denominator} + $that->{numerator} * $self->{denominator},
+            $self->{denominator} * $that->{denominator});
+    } else {
+        return fraction($self->{numerator} + $that->{numerator}, $self->{denominator});
+    }
 }
 
 1;

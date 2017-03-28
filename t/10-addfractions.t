@@ -32,8 +32,11 @@ tests negativeInputsAndNegativeOutputs => sub {
 };
 
 tests nonTrivialButCommonDenominator => sub {
-    my $sum = fraction(1,5)->plus( fraction(2,5) );
-    is_deeply( fraction(3, 5), $sum);
+    is_deeply( fraction(1,5)->plus( fraction(2,5) ), fraction(3, 5), 'non trivial but common denominator');
+};
+
+tests differentDenominators => sub {
+    is_deeply( fraction(1,2)->plus( fraction(1,3) ), fraction(5, 6), 'different denominators');
 };
 
 done_testing();

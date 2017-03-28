@@ -35,8 +35,8 @@ tests nonTrivialButCommonDenominator => sub {
     is_deeply( fraction(1,5)->plus( fraction(2,5) ), fraction(3, 5), 'non trivial but common denominator');
 };
 
-tests differentDenominators => sub {
-    is_deeply( fraction(1,2)->plus( fraction(1,3) ), fraction(5, 6), 'different denominators');
+tests differentDenominatorsWithoutReducing => sub {
+    is_deeply( fraction(1,2)->plus( fraction(1,3) ), fraction(5, 6), 'different denominators without reducing');
 };
 
 done_testing();

@@ -12,23 +12,23 @@ BEGIN { use_ok 'Perl::TDD::Fraction', qw(fraction plus intValue) }
 
 #AddFractionsTests
 tests zeroPlusZero => sub {
-    is( fraction(0)->plus( fraction(0) )->intValue(), 0, 'zero plus zero');
+    is_deeply( fraction(0)->plus( fraction(0) ), fraction(0), 'zero plus zero');
 };
 
 tests nonZeroPlusZero => sub {
-    is( fraction(3)->plus( fraction(0) )->intValue(), 3, 'non zero plus zero' );
+    is_deeply( fraction(3)->plus( fraction(0) ), fraction(3), 'non zero plus zero' );
 };
 
 tests zeroPlusNonZero => sub {
-    is( fraction(0)->plus( fraction(5) )->intValue(), 5, 'zero plus non zero' );
+    is_deeply( fraction(0)->plus( fraction(5) ), fraction(5), 'zero plus non zero' );
 };
 
 tests nonNegativeNonZeroOperands => sub {
-    is( fraction(3)->plus( fraction(4) )->intValue(), 7, 'non negative non zero operands' );
+    is_deeply( fraction(3)->plus( fraction(4) ), fraction(7), 'non negative non zero operands' );
 };
 
 tests negativeInputsAndNegativeOutputs => sub {
-    is( fraction(-3)->plus( fraction(1) )->intValue(), -2, 'negative inputs and negative outputs' );
+    is_deeply( fraction(-3)->plus( fraction(1) ), fraction(-2), 'negative inputs and negative outputs' );
 };
 
 tests nonTrivialButCommonDenominator => sub {

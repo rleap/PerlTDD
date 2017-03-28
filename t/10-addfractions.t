@@ -32,11 +32,39 @@ tests negativeInputsAndNegativeOutputs => sub {
 };
 
 tests nonTrivialButCommonDenominator => sub {
-    is_deeply( fraction(1,5)->plus( fraction(2,5) ), fraction(3, 5), 'non trivial but common denominator');
+    is_deeply( fraction(1, 5)->plus( fraction(2, 5) ), fraction(3, 5), 'non trivial but common denominator');
 };
 
 tests differentDenominatorsWithoutReducing => sub {
-    is_deeply( fraction(1,2)->plus( fraction(1,3) ), fraction(5, 6), 'different denominators without reducing');
+    is_deeply( fraction(1, 2)->plus( fraction(1, 3) ), fraction(5, 6), 'different denominators without reducing');
+};
+
+tests reduceResultToWholeNumber => sub {
+    is_deeply( fraction(1, 3)->plus( fraction(2, 3) ), fraction(1), 'reduce result to whole number');
+};
+
+tests oneDenominatorIsAMultipleOfTheOther => sub {
+    is_deeply( fraction(3, 4)->plus( fraction(5, 8) ), fraction(11, 8), 'one denominator is a multiple of the other');
+};
+
+tests commonFactorInDenominators => sub {
+    is_deeply( fraction(1, 6)->plus( fraction(4, 9) ), fraction(11, 18), 'common factor in denominators');
+};
+
+tests reduceResultsEvenWhenDenominatorsAreTheSame => sub {
+    is_deeply( fraction(3, 4)->plus( fraction(3, 4) ), fraction(3, 2), 'reduce results even when denominators are the same');
+};
+
+tests negatvieFractionAndReducing => sub {
+    is_deeply( fraction(-1, 4)->plus( fraction(3, 4) ), fraction(1, 2), 'negative fraction and reducing');
+    is_deeply( fraction(3, 8)->plus( fraction(-1, 2) ), fraction(-1, 8), 'negative fraction and reducing');
+};
+
+SKIP: {
+    skip 'constructor does not yet avoid negative denominators', 1 if 1;
+    tests crazyNegativeSignsEverywhere => sub {
+        is_deeply( fraction(1, -4)->plus( fraction(-3, -4) ), fraction(1, 2), 'crazy negative fraction and reducing');
+    };
 };
 
 done_testing();

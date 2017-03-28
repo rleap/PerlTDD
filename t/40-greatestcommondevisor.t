@@ -39,4 +39,10 @@ tests negatives => sub {
     is( gcd(24, -28), 4, 'gcd positive twentyfour and negative twentyeight');
 };
 
+tests zero => sub {
+    is( gcd(1, 0), 1, 'zero');
+    is( gcd(0, 5), 5, 'zero');
+    is( gcd(0, 0), 0, 'zero');
+};
+
 done_testing();

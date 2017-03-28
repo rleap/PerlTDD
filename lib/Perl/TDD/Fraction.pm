@@ -20,6 +20,7 @@ sub fraction {
     $self->{numerator} = shift;
     $self->{denominator} = shift || 1;
     my $signOfDenominator = $self->{denominator} < 0 ? -1 : 1;
+    #CONTRACT: gcd() never returns 0
     my $gcd = gcd($self->{numerator}, $self->{denominator}) * $signOfDenominator;
     $self->{numerator} /= $gcd;
     $self->{denominator} /= $gcd;

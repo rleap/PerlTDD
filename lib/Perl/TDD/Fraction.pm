@@ -3,6 +3,7 @@ package Perl::TDD::Fraction;
 use strict;
 use warnings;
 
+#I don't like this, but FindBin was not working
 use lib "/Users/rleap/Google/Projects/PerlTDD/lib";
 
 use Exporter qw(import);

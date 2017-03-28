@@ -19,7 +19,8 @@ sub fraction {
     $self = bless {}, $class;
     $self->{numerator} = shift;
     $self->{denominator} = shift || 1;
-    my $gcd = gcd($self->{numerator}, $self->{denominator});
+    my $signOfDenominator = $self->{denominator} < 0 ? -1 : 1;
+    my $gcd = gcd($self->{numerator}, $self->{denominator}) * $signOfDenominator;
     $self->{numerator} /= $gcd;
     $self->{denominator} /= $gcd;
     return $self;

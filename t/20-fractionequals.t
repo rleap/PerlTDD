@@ -31,4 +31,9 @@ tests wholeNumberNotEqualToDifferentWholeNumber => sub {
     cmp_ok( fraction(6), 'ne', fraction(5), 'whole number not equal to different whole number');
 };
 
+tests negativeDenominator => sub {
+    is_deeply( fraction(1, 2), fraction(-1, -2), 'negative denominator');
+    is_deeply( fraction(-1, 2), fraction(-1, 2), 'negative denominator');
+};
+
 done_testing();

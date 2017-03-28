@@ -7,8 +7,8 @@ use lib dirname($Bin) . '/lib';
 
 use Test::More;
 
-BEGIN { use_ok( 'Perl::TDD::Fraction', qw(fraction plus intValue) ) };
+BEGIN { use_ok( 'Perl::TDD::Fraction', qw(fraction plus intValue) ) }
 
-require_ok( 'Perl::TDD::Fraction' );
+require_ok('Perl::TDD::Fraction');
 
 done_testing();

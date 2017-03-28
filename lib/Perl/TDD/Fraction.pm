@@ -20,9 +20,11 @@ sub fraction {
     $self->{numerator} = shift;
     $self->{denominator} = shift || 1;
     my $signOfDenominator = $self->{denominator} < 0 ? -1 : 1;
+
     #CONTRACT: gcd() never returns 0
-    my $gcd = gcd($self->{numerator}, $self->{denominator}) * $signOfDenominator;
-    $self->{numerator} /= $gcd;
+    my $gcd =
+      gcd( $self->{numerator}, $self->{denominator} ) * $signOfDenominator;
+    $self->{numerator}   /= $gcd;
     $self->{denominator} /= $gcd;
     return $self;
 }
@@ -30,12 +32,11 @@ sub fraction {
 sub plus {
     my $self = shift;
     my $that = shift;
-    if ($self->{denominator} != $that->{denominator}) {
-        return fraction($self->{numerator} * $that->{denominator} + $that->{numerator} * $self->{denominator},
-            $self->{denominator} * $that->{denominator});
-    } else {
-        return fraction($self->{numerator} + $that->{numerator}, $self->{denominator});
-    }
+    return fraction(
+        $self->{numerator} * $that->{denominator} +
+          $that->{numerator} * $self->{denominator},
+        $self->{denominator} * $that->{denominator}
+    );
 }
 
 1;

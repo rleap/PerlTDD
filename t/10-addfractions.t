@@ -60,11 +60,8 @@ tests negatvieFractionAndReducing => sub {
     is_deeply( fraction(3, 8)->plus( fraction(-1, 2) ), fraction(-1, 8), 'negative fraction and reducing');
 };
 
-SKIP: {
-    skip 'constructor does not yet avoid negative denominators', 1 if 1;
-    tests crazyNegativeSignsEverywhere => sub {
-        is_deeply( fraction(1, -4)->plus( fraction(-3, -4) ), fraction(1, 2), 'crazy negative fraction and reducing');
-    };
+tests crazyNegativeSignsEverywhere => sub {
+    is_deeply( fraction(1, -4)->plus( fraction(-3, -4) ), fraction(1, 2), 'crazy negative fraction and reducing');
 };
 
 done_testing();

@@ -10,7 +10,7 @@ use Fennec;
 
 BEGIN { use_ok 'Perl::TDD::Fraction', qw(fraction plus intValue) }
 
-#AddFractionsTest
+#AddFractionsTests
 tests zeroPlusZero => sub {
     is( fraction(0)->plus( fraction(0) )->intValue(), 0, 'zero plus zero');
 };

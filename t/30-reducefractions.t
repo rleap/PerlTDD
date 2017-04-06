@@ -12,19 +12,19 @@ BEGIN { use_ok 'Perl::TDD::Fraction', qw(fraction plus intValue) }
 
 #ReduceFractionsTests
 tests alreadyInLowestTerms => sub {
-    is_deeply( fraction(3, 4), fraction(3, 4), 'already in lowest terms');
+    is( fraction(3, 4), fraction(3, 4), 'already in lowest terms');
 };
 
 tests reduceToNotWholeNumber => sub {
-    is_deeply( fraction(3, 4), fraction(6, 8), 'reduce to not whole number');
+    is( fraction(3, 4), fraction(6, 8), 'reduce to not whole number');
 };
 
 tests reduceToWholeNumber => sub {
-    is_deeply( fraction(6), fraction(24, 4), 'reduce to whole number');
+    is( fraction(6), fraction(24, 4), 'reduce to whole number');
 };
 
 tests reduceZero => sub {
-    is_deeply( fraction(0), fraction(0, 717171), 'reduce zero');
+    is( fraction(0), fraction(0, 717171), 'reduce zero');
 };
 
 done_testing();

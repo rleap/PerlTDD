@@ -6,6 +6,10 @@ use warnings;
 #I don't like this, but FindBin was not working
 use lib "/Users/rleap/Google/Projects/PerlTDD/lib";
 
+use overload
+  fallback => 1,
+  '""' => 'equals';
+
 use Exporter qw(import);
 our @EXPORT_OK = qw(fraction plus intValue);
 
@@ -37,6 +41,16 @@ sub plus {
           $that->{numerator} * $self->{denominator},
         $self->{denominator} * $that->{denominator}
     );
+}
+
+sub equals {
+  my $self = shift;
+  if (ref $self eq 'Fraction') {
+    my $that = $self;
+    return $self->{numerator} == $that->{numerator}
+      && $self->{denominator} == $that->{denominator};
+  }
+  return 0;
 }
 
 1;
